@@ -1,5 +1,7 @@
 package be.intecbrussel.dakplusplus.App;
 
+import be.intecbrussel.dakplusplus.datalayer.EmployeeRepository;
+import be.intecbrussel.dakplusplus.datalayer.EntityManagerCreator;
 import be.intecbrussel.dakplusplus.model.Adress;
 import be.intecbrussel.dakplusplus.model.ContactData;
 import be.intecbrussel.dakplusplus.model.client.Client;
@@ -19,8 +21,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("action_is_update");
-        EntityManager em = emf.createEntityManager();
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("action_is_update");
+//        EntityManager em = emf.createEntityManager();
+        EntityManager em = EntityManagerCreator.getEntityManager();
         em.getTransaction().begin();
 
         Adress adress1 = new Adress("Aanspach", "12", "1000", "Bruxelles","Belgique");
@@ -159,6 +162,13 @@ public class Main {
         em.persist(dakplusplus);
         em.getTransaction().commit();
         em.close();
-        emf.close();
+//        emf.close();
+
+        // DISPLAYING ALL THE EMPLOYEES
+        System.out.println("List of employees");
+        EmployeeRepository employeeRepository = new EmployeeRepository();
+       List<Employee> employeesS = employeeRepository.getListEmployee();
+        employeesS.stream().forEach(System.out::println);
+
     }
 }

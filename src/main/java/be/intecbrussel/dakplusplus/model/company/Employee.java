@@ -144,10 +144,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", role=" + role
+        return firstName + " " + lastName +  ", " + role + " born the " + birthdate.toInstant()
 /*
                 +
                 ", contactData=" + contactData +

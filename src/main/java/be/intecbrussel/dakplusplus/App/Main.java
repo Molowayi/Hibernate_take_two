@@ -7,6 +7,7 @@ import be.intecbrussel.dakplusplus.model.ContactData;
 import be.intecbrussel.dakplusplus.model.client.Client;
 import be.intecbrussel.dakplusplus.model.company.Company;
 import be.intecbrussel.dakplusplus.model.company.Employee;
+import be.intecbrussel.dakplusplus.model.company.Role;
 import be.intecbrussel.dakplusplus.model.company.WorkedHours;
 import be.intecbrussel.dakplusplus.model.invoice.Invoice;
 import be.intecbrussel.dakplusplus.model.invoice.Invoice_Type;
@@ -111,9 +112,10 @@ public class Main {
         Calendar birthdate = Calendar.getInstance();
         birthdate.set(1990, 6, 26);
         tom.setFirstName("Tom");
-        tom.setFirstName("Sawyer");
+        tom.setLastName("Sawyer");
         tom.setHours(workedHoursSet);
         tom.setBirthdate(birthdate);
+        tom.setRole(Role.WORKER);
 
         Employee jan = new Employee();
         jan.setContactData(contactData1);
@@ -121,8 +123,9 @@ public class Main {
         Calendar birthdate2 = Calendar.getInstance();
         birthdate2.set(1992, 7, 26);
         jan.setFirstName("Jan");
-        jan.setFirstName("Sammers");
+        jan.setLastName("Sammers");
         jan.setBirthdate(birthdate2);
+        jan.setRole(Role.TEAM_LEADER);
 
 
         Client client = new Client();

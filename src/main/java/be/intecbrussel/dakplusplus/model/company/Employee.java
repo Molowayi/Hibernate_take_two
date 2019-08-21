@@ -18,6 +18,7 @@ public class Employee {
     private long id;
     @NotNull
     private String firstName;
+    @NotNull private Calendar birthdate;
     @NotNull
     private String lastName;
     @Enumerated(EnumType.STRING)
@@ -155,4 +156,11 @@ public class Employee {
                 ;
     }
 
+    public void setBirthdate(Calendar birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public Calendar getBirthdate() {
+        return birthdate;
+    }
 }

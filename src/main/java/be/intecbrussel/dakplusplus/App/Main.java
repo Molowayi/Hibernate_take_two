@@ -52,6 +52,7 @@ public class Main {
         contactData3.setAdresses(adresses3);
 
         Calendar calendar = Calendar.getInstance();
+        calendar.set(2018, 2, 21);
         Calendar calendar2 = Calendar.getInstance();
         calendar2.set(2018, 3, 21);
         Calendar calendar3 = Calendar.getInstance();
@@ -112,14 +113,16 @@ public class Main {
         tom.setFirstName("Tom");
         tom.setFirstName("Sawyer");
         tom.setHours(workedHoursSet);
+        tom.setBirthdate(birthdate);
 
         Employee jan = new Employee();
-        tom.setContactData(contactData1);
+        jan.setContactData(contactData1);
 
         Calendar birthdate2 = Calendar.getInstance();
-        birthdate.set(1992, 7, 26);
+        birthdate2.set(1992, 7, 26);
         jan.setFirstName("Jan");
         jan.setFirstName("Sammers");
+        jan.setBirthdate(birthdate2);
 
 
         Client client = new Client();
@@ -147,9 +150,10 @@ public class Main {
         Company dakplusplus = new Company();
         dakplusplus.setContactData(contactDataDpp);
         dakplusplus.setName("Dak plus plus");
-        List<Employee> employees = new ArrayList<>();
+        Set<Employee> employees = new HashSet<>();
         employees.add(tom);
         employees.add(jan);
+        dakplusplus.setEmployees(employees);
 
         dakplusplus.setClients(clients);
         client.setCompany(dakplusplus);

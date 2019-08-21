@@ -4,6 +4,7 @@ import be.intecbrussel.dakplusplus.model.ContactData;
 import be.intecbrussel.dakplusplus.model.client.Client;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +15,7 @@ public class Company {
     @Id
     @GeneratedValue
     private long id;
+    @NotNull
     private String name;
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "company")
     private List<Client> clients = new ArrayList<>();

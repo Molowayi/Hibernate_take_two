@@ -26,10 +26,10 @@ public class Main {
         EntityManager em = EntityManagerCreator.getEntityManager();
         em.getTransaction().begin();
 
-        Adress adress1 = new Adress("Aanspach", "12", "1000", "Bruxelles","Belgique");
-        Adress adress2 = new Adress("Aanspach", "12", "1000", "Bruxelles","Belgique");
-        Adress adress3 = new Adress("Aanspach", "12", "1000", "Bruxelles","Belgique");
-        Adress adress4 = new Adress("Aanspach", "12", "1000", "Bruxelles","Belgique");
+        Adress adress1 = new Adress("Aanspach", "12", "1000", "Bruxelles", "Belgique");
+        Adress adress2 = new Adress("Aanspach", "12", "1000", "Bruxelles", "Belgique");
+        Adress adress3 = new Adress("Aanspach", "12", "1000", "Bruxelles", "Belgique");
+        Adress adress4 = new Adress("Aanspach", "12", "1000", "Bruxelles", "Belgique");
 
         ContactData contactData1 = new ContactData();
         contactData1.setEmail("email@gmail.com");
@@ -167,7 +167,7 @@ public class Main {
         // DISPLAYING ALL THE EMPLOYEES
         System.out.println("List of employees");
         EmployeeRepository employeeRepository = new EmployeeRepository();
-       List<Employee> employeesS = employeeRepository.getListEmployee();
+        List<Employee> employeesS = employeeRepository.getListEmployee();
         employeesS.stream().forEach(System.out::println);
 
     }

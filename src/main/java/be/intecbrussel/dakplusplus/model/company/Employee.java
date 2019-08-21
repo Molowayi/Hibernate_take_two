@@ -146,9 +146,13 @@ public class Employee {
         return "Employee{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", role=" + role +
+                ", role=" + role
+/*
+                +
                 ", contactData=" + contactData +
-                '}';
+                '}'
+*/
+                ;
     }
 
 }

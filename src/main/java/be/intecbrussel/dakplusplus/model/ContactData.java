@@ -4,11 +4,12 @@ import be.intecbrussel.dakplusplus.model.company.Company;
 import be.intecbrussel.dakplusplus.model.company.Employee;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class ContactData {
+public class ContactData implements Serializable {
 
     @Id
     @GeneratedValue

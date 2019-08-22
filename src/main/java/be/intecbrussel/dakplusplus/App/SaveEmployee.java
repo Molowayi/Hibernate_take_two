@@ -6,12 +6,16 @@ import be.intecbrussel.dakplusplus.model.ContactData;
 import be.intecbrussel.dakplusplus.model.company.Employee;
 import be.intecbrussel.dakplusplus.model.company.Role;
 
+import java.util.Calendar;
+
 public class SaveEmployee {
 
     public static void main(String[] args) {
 
         Employee jeb = hireEmployee("Jeb", "Bush", "0477777776", "15, Hogestraat, 1000, Bruxelles, Belgium", Role.ADMINISTRATIVE);
+        jeb.setBirthdate(Calendar.getInstance());
         Employee james = hireEmployee("James", "Monroe", "0477777775", "18, Philippe de Champagne, 1000, Bruxelles, Belgium", Role.TEAM_LEADER);
+        james.setBirthdate(Calendar.getInstance());
         EmployeeRepository employeeRepository = new EmployeeRepository();
         employeeRepository.createEmployee(jeb);
         employeeRepository.createEmployee(james);

@@ -4,11 +4,12 @@ import be.intecbrussel.dakplusplus.model.project.Project;
 import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Adress {
+public class Adress implements Serializable{
 
     @Id
     @GeneratedValue
@@ -120,7 +121,7 @@ public class Adress {
         if (zipCode != null ? !zipCode.equals(adress.zipCode) : adress.zipCode != null) return false;
         if (city != null ? !city.equals(adress.city) : adress.city != null) return false;
         if (country != null ? !country.equals(adress.country) : adress.country != null) return false;
-        if (data != null ? !data.equals(adress.data) : adress.data != null) return false;
+/*        if (data != null ? !data.equals(adress.data) : adress.data != null) return false; */
         return projects != null ? projects.equals(adress.projects) : adress.projects == null;
     }
 
@@ -132,7 +133,7 @@ public class Adress {
         result = 31 * result + (zipCode != null ? zipCode.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
-        result = 31 * result + (data != null ? data.hashCode() : 0);
+/*        result = 31 * result + (data != null ? data.hashCode() : 0);  */
         result = 31 * result + (projects != null ? projects.hashCode() : 0);
         return result;
     }

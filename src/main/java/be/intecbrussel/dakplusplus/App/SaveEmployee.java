@@ -5,10 +5,15 @@ import be.intecbrussel.dakplusplus.model.Adress;
 import be.intecbrussel.dakplusplus.model.ContactData;
 import be.intecbrussel.dakplusplus.model.company.Employee;
 import be.intecbrussel.dakplusplus.model.company.Role;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.util.Calendar;
 
-public class SaveEmployee {
+public class SaveEmployee extends Application {
 
     public static void main(String[] args) {
 
@@ -22,8 +27,19 @@ public class SaveEmployee {
 
         System.out.println("Employee " + jeb + " was created in the database");
         System.out.println("Employee " + james + " was created in the database");
+
+        // GUI
+        launch(args);
     }
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/vues/Employees.fxml"));
+        Scene scene = new Scene(root/*, 600, 400*/);
+        primaryStage.setTitle("Employee");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
     private static Employee hireEmployee(String firstname, String lastname, String gsm, String contact, Role role) {
         Employee employee = new Employee();
         employee.setFirstName(firstname);

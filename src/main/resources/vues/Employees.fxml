@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import be.intecbrussel.dakplusplus.App.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.Group?>
+<?import be.intecbrussel.dakplusplus.App.MultiSelectListView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="be.intecbrussel.dakplusplus.App.Employees"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+          prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+
+                <children>
+                    <Label text="Name : "/>
+                    <TextField promptText="Your name here"/>
+                    <Label text="Name : "/>
+                    <TextField promptText="Your name here"/>
+                    <Label text="E-mail : "/>
+                    <TextField promptText="Your e-mail here"/>
+                    <Label text="Delivery date : "/>
+                    <DatePicker/>
+                    <Label text="E-mail : "/>
+                    <TextField promptText="Your e-mail here"/>
+                    <Label text="Delivery date : "/>
+                    <DatePicker/>
+                    <Button mnemonicParsing="false" text="Order"/>
+                </children>
+            </HBox>
+            <HBox prefHeight="171.0" prefWidth="600.0">
+                <children>
+                    <VBox>
+                        <children>
+                            <Label text="First Name : "/>
+                            <TextField promptText="Your first name here"/>
+                            <Label text="Last Name : "/>
+                            <TextField promptText="Your last name here"/>
+                            <Label text="Role : "/>
+                            <TextField promptText="Your role here"/>
+                            <Label text="E-mail : "/>
+                            <TextField promptText="Your e-mail here"/>
+                            <Label text="Birthdate : "/>
+                            <DatePicker/>
+                        </children>
+                    </VBox>
+                    <VBox prefHeight="200.0" prefWidth="200.0">
+                        <children>
+                            <Label text="Ingeredients"/>
+                            <MultiSelectListView prefHeight="200.0" prefWidth="200.0">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="Bacon"/>
+                                        <String fx:value="Cheese"/>
+                                        <String fx:value="Mushrooms"/>
+                                        <String fx:value="Oregano"/>
+                                        <String fx:value="Salami"/>
+                                        <String fx:value="Tomatoes"/>
+                                        <String fx:value="Shrimps"/>
+                                        <String fx:value="Onions"/>
+                                        <String fx:value="Garlic"/>
+                                        <String fx:value="Artichoke"/>
+                                    </FXCollections>
+                                </items>
+                            </MultiSelectListView>
+                        </children>
+                    </VBox>
+                    <Label>
+                        <graphic>
+                            <ImageView fitHeight="150.0" fitWidth="776.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@/vues/molophoto.jpeg"/>
+                            </ImageView>
+                        </graphic>
+                    </Label>
+                </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+                <children>
+                    <Label text="Bottom : "/>
+                    <HBox prefHeight="100.0" prefWidth="237.0">
+                        <fx:define>
+                            <ToggleGroup fx:id="myToggleGroup"/>
+                        </fx:define>
+                        <RadioButton mnemonicParsing="false" text="Traditional" toggleGroup="$myToggleGroup"/>
+                        <RadioButton mnemonicParsing="false" text="Crusty" toggleGroup="$myToggleGroup" selected="true"/>
+                    </HBox>
+                    <CheckBox mnemonicParsing="false" text="Spicy"/>
+                    <Label text="Size : "/>
+                    <ComboBox editable="true" prefWidth="150.0">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Small"/>
+                                <String fx:value="Medium"/>
+                                <String fx:value="Large"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <Label text="Number : "/>
+                    <TextField/>
+                </children>
+            </HBox>
+        </children>
+    </VBox>
+</AnchorPane>

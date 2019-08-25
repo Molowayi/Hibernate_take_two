@@ -5,7 +5,7 @@ import javax.persistence.*;
 public class EntityManagerCreator {
 
     private static final EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("thordbH2");
+            Persistence.createEntityManagerFactory("action_is_update");
 
     public static EntityManager getEntityManager() {
         return emf.createEntityManager();

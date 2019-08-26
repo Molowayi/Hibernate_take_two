@@ -13,6 +13,7 @@
 <?import javafx.collections.*?>
 <?import javafx.scene.Group?>
 <?import be.intecbrussel.dakplusplus.App.MultiSelectListView?>
+<?import be.intecbrussel.dakplusplus.model.company.Role ?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -25,33 +26,35 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
 
                 <children>
-                    <Label text="Name : "/>
-                    <TextField promptText="Your name here"/>
-                    <Label text="Name : "/>
-                    <TextField promptText="Your name here"/>
-                    <Label text="E-mail : "/>
-                    <TextField promptText="Your e-mail here"/>
-                    <Label text="Delivery date : "/>
-                    <DatePicker/>
-                    <Label text="E-mail : "/>
-                    <TextField promptText="Your e-mail here"/>
-                    <Label text="Delivery date : "/>
-                    <DatePicker/>
-                    <Button mnemonicParsing="false" text="Order"/>
+                    <Button mnemonicParsing="false" text="Save"/>
                 </children>
             </HBox>
             <HBox prefHeight="171.0" prefWidth="600.0">
                 <children>
                     <VBox>
                         <children>
+                            <Label text="Id : " fx:id="id"/>
                             <Label text="First Name : "/>
-                            <TextField promptText="Your first name here"/>
+                            <TextField fx:id="firstname" promptText="Your first name here : "/>
                             <Label text="Last Name : "/>
-                            <TextField promptText="Your last name here"/>
+                            <TextField fx:id="lastname" promptText="Your last name here : "/>
                             <Label text="Role : "/>
-                            <TextField promptText="Your role here"/>
+                            <TextField fx:id="role" promptText="Your role here : "/>
                             <Label text="E-mail : "/>
-                            <TextField promptText="Your e-mail here"/>
+                            <TextField fx:id="email" promptText="Your e-mail here : "/>
+                            <Label text="Mobile : "/>
+                            <TextField fx:id="mobile" promptText="Your mobile phone : "/>
+                            <Label text="Street : "/>
+                            <TextField fx:id="street" promptText="Street : "/>
+                            <Label text="Number : "/>
+                            <TextField fx:id="streetNumber" promptText="Number : "/>
+                            <Label text="Zip code : "/>
+                            <TextField fx:id="zipcode" promptText="Zip code : "/>
+                            <Label text="City : "/>
+                            <TextField fx:id="city" promptText="City : "/>
+                            <Label text="Country : "/>
+                            <TextField fx:id="country" promptText="Country : "/>
+
                             <Label text="Birthdate : "/>
                             <DatePicker/>
                         </children>
@@ -97,13 +100,13 @@
                         <RadioButton mnemonicParsing="false" text="Crusty" toggleGroup="$myToggleGroup" selected="true"/>
                     </HBox>
                     <CheckBox mnemonicParsing="false" text="Spicy"/>
-                    <Label text="Size : "/>
+                    <Label text="Role : "/>
                     <ComboBox editable="true" prefWidth="150.0">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
-                                <String fx:value="Small"/>
-                                <String fx:value="Medium"/>
-                                <String fx:value="Large"/>
+                                <String fx:value="WORKER"/>
+                                <String fx:value="ADMINISTRATIVE"/>
+                                <String fx:value="TEAM_LEADER"/>
                             </FXCollections>
                         </items>
                     </ComboBox>

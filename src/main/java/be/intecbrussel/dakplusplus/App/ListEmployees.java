@@ -3,7 +3,6 @@ package be.intecbrussel.dakplusplus.App;
 import be.intecbrussel.dakplusplus.datalayer.EmployeeRepository;
 import be.intecbrussel.dakplusplus.model.company.Employee;
 import javafx.application.Application;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,7 +25,7 @@ public class ListEmployees extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/vues/Employees.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("@/Employees.fxml"));
         Scene scene = new Scene(root/*, 600, 400*/);
         primaryStage.setTitle("Employee");
         primaryStage.setScene(scene);

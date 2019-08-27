@@ -25,33 +25,40 @@
 
     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
           prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-            <HBox prefHeight="100.0" prefWidth="200.0">
+<!--            <HBox prefHeight="100.0" prefWidth="200.0">
 
-                    <Button mnemonicParsing="false" text="Save"/>
-            </HBox>
+                    <Button mnemonicParsing="false" text="Save" />
+                <Label>
+                    <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="776.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@/vues/molophoto.jpeg"/>
+                        </ImageView>
+                    </graphic>
+                </Label>
+            </HBox>-->
             <HBox prefHeight="171.0" prefWidth="600.0">
                     <VBox>
                             <Label text="Id : " fx:id="id"/>
                             <Label text="First Name : "/>
-                            <TextField fx:id="firstname" promptText="Your first name here : "/>
+                            <TextField fx:id="firstname" promptText="Your first name here"/>
                             <Label text="Last Name : "/>
-                            <TextField fx:id="lastname" promptText="Your last name here : "/>
+                            <TextField fx:id="lastname" promptText="Your last name here"/>
                             <Label text="Role : "/>
-                            <TextField fx:id="role" promptText="Your role here : "/>
+                            <TextField fx:id="role" promptText="Your role here"/>
                             <Label text="E-mail : "/>
-                            <TextField fx:id="emailadress" promptText="Your e-mail here : "/>
+                            <TextField fx:id="emailadress" promptText="Your e-mail"/>
                             <Label text="Mobile : "/>
-                            <TextField fx:id="mobile" promptText="Your mobile phone : "/>
+                            <TextField fx:id="mobile" promptText="Your mobile phone"/>
                             <Label text="Street : "/>
-                            <TextField fx:id="street" promptText="Street : "/>
+                            <TextField fx:id="street" promptText="Street"/>
                             <Label text="Number : "/>
-                            <TextField fx:id="streetNumber" promptText="Number : "/>
+                            <TextField fx:id="streetNumber" promptText="Number"/>
                             <Label text="Zip code : "/>
-                            <TextField fx:id="zipcode" promptText="Zip code : "/>
+                            <TextField fx:id="zipcode" promptText="Zip code"/>
                             <Label text="City : "/>
-                            <TextField fx:id="city" promptText="City : "/>
+                            <TextField fx:id="city" promptText="City"/>
                             <Label text="Country : "/>
-                            <TextField fx:id="country" promptText="Country : "/>
+                            <TextField fx:id="country" promptText="Country"/>
 
                             <Label text="Birthdate : "/>
                             <DatePicker/>
@@ -75,13 +82,7 @@
                                 </items>
                             </MultiSelectListView>
                     </VBox>-->
-                    <Label>
-                        <graphic>
-                            <ImageView fitHeight="150.0" fitWidth="776.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@/vues/molophoto.jpeg"/>
-                            </ImageView>
-                        </graphic>
-                    </Label>
+
             </HBox>
 
     </VBox>

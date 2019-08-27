@@ -1,0 +1,7 @@
+.vBox {
+        -fx-border: solid black 2px ;
+        -fx-margin-left: 20px;
+}
+.datepiker {
+        -fx-color:red;
+}

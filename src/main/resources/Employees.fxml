@@ -11,6 +11,8 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
+<?import java.net.URL?>
+
 <!--
 <?import be.intecbrussel.dakplusplus.App.MultiSelectListView?>
 -->
@@ -22,9 +24,15 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="be.intecbrussel.dakplusplus.App.Employees"
             prefHeight="400.0" prefWidth="600.0">
-
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
           prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <style>
+            -fx-padding: 20;
+            -fx-border-width: 3;
+        </style>
 <!--            <HBox prefHeight="100.0" prefWidth="200.0">
 
                     <Button mnemonicParsing="false" text="Save" />
@@ -37,7 +45,7 @@
                 </Label>
             </HBox>-->
             <HBox prefHeight="171.0" prefWidth="600.0">
-                    <VBox>
+                    <VBox spacing="5" >
                             <Label text="Id : " fx:id="id"/>
                             <Label text="First Name : "/>
                             <TextField fx:id="firstname" promptText="Your first name here"/>

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Employees {
     @FXML
-    private Label id;
+    private Label id ;
     @FXML
     private TextField firstname;
     @FXML

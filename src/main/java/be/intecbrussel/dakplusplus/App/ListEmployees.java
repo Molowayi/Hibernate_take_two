@@ -25,7 +25,7 @@ public class ListEmployees extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("@/Employees.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Employees.fxml"));
         Scene scene = new Scene(root/*, 600, 400*/);
         primaryStage.setTitle("Employee");
         primaryStage.setScene(scene);

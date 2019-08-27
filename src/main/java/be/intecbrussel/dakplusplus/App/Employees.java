@@ -10,13 +10,29 @@ import java.util.List;
 
 public class Employees {
     @FXML
-    private TextField name;
+    private Label id;
     @FXML
-    private TextField email;
+    private TextField firstname;
     @FXML
-    private TextField numberPizza;
+    private TextField lastname;
     @FXML
-    private DatePicker deliveryDate;
+    private TextField emailadress;
+    @FXML
+    private TextField role;
+    @FXML
+    private TextField mobile;
+    @FXML
+    private TextField street;
+    @FXML
+    private TextField streetNumber;
+    @FXML
+    private TextField zipcode;
+    @FXML
+    private TextField city;
+    @FXML
+    private TextField country;
+    @FXML
+    private DatePicker birthdate;
     @FXML
     private MultiSelectListView ingredients;
     @FXML
@@ -29,6 +45,7 @@ public class Employees {
 
     @FXML
     private void takeOrder() {
+/*
         LocalDate value = deliveryDate.getValue();
 //        ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedIndices();
         ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedItems();
@@ -49,6 +66,7 @@ public class Employees {
                 "\nSelected bottom : " + selectedBottom.getText() +
                 "\nSpicy : " + isSpicy +
                 "\nPieces : " + numberOfPieces);
+*/
 
     }
 }

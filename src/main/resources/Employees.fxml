@@ -11,9 +11,12 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
-<?import javafx.scene.Group?>
+<!--
 <?import be.intecbrussel.dakplusplus.App.MultiSelectListView?>
+-->
+<!--
 <?import be.intecbrussel.dakplusplus.model.company.Role ?>
+-->
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -22,17 +25,12 @@
 
     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
           prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-        <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
 
-                <children>
                     <Button mnemonicParsing="false" text="Save"/>
-                </children>
             </HBox>
             <HBox prefHeight="171.0" prefWidth="600.0">
-                <children>
                     <VBox>
-                        <children>
                             <Label text="Id : " fx:id="id"/>
                             <Label text="First Name : "/>
                             <TextField fx:id="firstname" promptText="Your first name here : "/>
@@ -41,7 +39,7 @@
                             <Label text="Role : "/>
                             <TextField fx:id="role" promptText="Your role here : "/>
                             <Label text="E-mail : "/>
-                            <TextField fx:id="email" promptText="Your e-mail here : "/>
+                            <TextField fx:id="emailadress" promptText="Your e-mail here : "/>
                             <Label text="Mobile : "/>
                             <TextField fx:id="mobile" promptText="Your mobile phone : "/>
                             <Label text="Street : "/>
@@ -57,12 +55,10 @@
 
                             <Label text="Birthdate : "/>
                             <DatePicker/>
-                        </children>
                     </VBox>
-                    <VBox prefHeight="200.0" prefWidth="200.0">
-                        <children>
+<!--                    <VBox prefHeight="200.0" prefWidth="200.0">
                             <Label text="Ingeredients"/>
-                            <MultiSelectListView prefHeight="200.0" prefWidth="200.0">
+                            <MultiSelectListView fx:id="ingredients" prefHeight="200.0" prefWidth="200.0">
                                 <items>
                                     <FXCollections fx:factory="observableArrayList">
                                         <String fx:value="Bacon"/>
@@ -78,8 +74,7 @@
                                     </FXCollections>
                                 </items>
                             </MultiSelectListView>
-                        </children>
-                    </VBox>
+                    </VBox>-->
                     <Label>
                         <graphic>
                             <ImageView fitHeight="150.0" fitWidth="776.0" pickOnBounds="true" preserveRatio="true">
@@ -87,33 +82,7 @@
                             </ImageView>
                         </graphic>
                     </Label>
-                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-                <children>
-                    <Label text="Bottom : "/>
-                    <HBox prefHeight="100.0" prefWidth="237.0">
-                        <fx:define>
-                            <ToggleGroup fx:id="myToggleGroup"/>
-                        </fx:define>
-                        <RadioButton mnemonicParsing="false" text="Traditional" toggleGroup="$myToggleGroup"/>
-                        <RadioButton mnemonicParsing="false" text="Crusty" toggleGroup="$myToggleGroup" selected="true"/>
-                    </HBox>
-                    <CheckBox mnemonicParsing="false" text="Spicy"/>
-                    <Label text="Role : "/>
-                    <ComboBox editable="true" prefWidth="150.0">
-                        <items>
-                            <FXCollections fx:factory="observableArrayList">
-                                <String fx:value="WORKER"/>
-                                <String fx:value="ADMINISTRATIVE"/>
-                                <String fx:value="TEAM_LEADER"/>
-                            </FXCollections>
-                        </items>
-                    </ComboBox>
-                    <Label text="Number : "/>
-                    <TextField/>
-                </children>
-            </HBox>
-        </children>
+
     </VBox>
 </AnchorPane>

@@ -1,16 +1,20 @@
 package be.intecbrussel.dakplusplus.App;
 
+import be.intecbrussel.dakplusplus.datalayer.EmployeeRepository;
+import be.intecbrussel.dakplusplus.model.company.Employee;
+import be.intecbrussel.dakplusplus.model.company.Role;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.List;
 
 public class Employees {
     @FXML
-    private Label id ;
+    private Label id;
     @FXML
     private TextField firstname;
     @FXML
@@ -45,6 +49,36 @@ public class Employees {
 
     @FXML
     private void save() {
+
+        EmployeeRepository employeeRepository = new EmployeeRepository();
+
+
+        LocalDate localDate = birthdate.getValue();
+        Calendar bd = Calendar.getInstance();
+        bd.clear();
+        //assuming start of day
+        bd.set(localDate.getYear(), localDate.getMonthValue() - 1, localDate.getDayOfMonth());
+
+        Role _role = Employee.makeEmployeeRoleFromString((String) role.getText());
+        System.out.println(_role);
+
+        Employee employee = new Employee(
+                firstname.getText(),
+                lastname.getText(),
+                mobile.getText(),
+                emailadress.getText(),
+                street.getText(),
+                streetNumber.getText(),
+                zipcode.getText(),
+                city.getText(),
+                country.getText(),
+                Role.WORKER,
+                bd
+
+        );
+        System.out.println(employee);
+         Employee employee2 = employeeRepository.createEmployee(employee);
+        id.setText(new Long(employee2.getId()).toString());
 /*
         LocalDate value = deliveryDate.getValue();
 //        ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedIndices();

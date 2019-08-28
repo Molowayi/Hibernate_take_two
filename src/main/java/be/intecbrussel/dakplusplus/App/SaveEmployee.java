@@ -17,9 +17,12 @@ public class SaveEmployee extends Application {
 
     public static void main(String[] args) {
 
-        Employee jeb = hireEmployee("Jeb", "Bush", "0477777776", "15, Hogestraat, 1000, Bruxelles, Belgium", Role.ADMINISTRATIVE);
-        jeb.setBirthdate(Calendar.getInstance());
-        Employee james = hireEmployee("James", "Monroe", "0477777775", "18, Philippe de Champagne, 1000, Bruxelles, Belgium", Role.TEAM_LEADER);
+        Calendar jeb_birthdate = Calendar.getInstance();
+        jeb_birthdate.set(1967,9,9);
+        Employee jeb = new Employee("Jeb", "Bush", "0477777776","jeb@email.adress", "15", "Hogestraat", "1000", "Bruxelles", "Belgium", Role.ADMINISTRATIVE, jeb_birthdate);
+        Calendar james_birthade = Calendar.getInstance();
+        james_birthade.set(1968,9,1);;
+        Employee james = new Employee("James", "Monroe", "0477777775","jeb@email.adress",  "18", "Philippe de Champagne", "1000", "Bruxelles", "Belgium", Role.TEAM_LEADER, james_birthade);
         james.setBirthdate(Calendar.getInstance());
         EmployeeRepository employeeRepository = new EmployeeRepository();
         employeeRepository.createEmployee(jeb);
@@ -39,19 +42,5 @@ public class SaveEmployee extends Application {
         primaryStage.setTitle("Employee");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-    private static Employee hireEmployee(String firstname, String lastname, String gsm, String contact, Role role) {
-        Employee employee = new Employee();
-        employee.setFirstName(firstname);
-        employee.setLastName(lastname);
-        employee.setRole(role);
-        String[] kontact = contact.split(",");
-        Adress adress = new Adress(kontact[1], kontact[0], kontact[2], kontact[3], kontact[4]);
-        ContactData contactData = new ContactData();
-        contactData.setMobile(gsm);
-        contactData.setEmail(firstname + "." + lastname + "@dakplusplus.be");
-        contactData.addAdress(adress);
-        employee.addContactData(contactData);
-        return employee;
     }
 }

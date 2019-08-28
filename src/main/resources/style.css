@@ -1,7 +1,23 @@
 .vBox {
-        -fx-border: solid black 2px ;
+        -fx-border: 5px solid red;
         -fx-margin-left: 20px;
 }
 .datepiker {
-        -fx-color:red;
+        -fx-color:blue;
 }
+
+#identification {
+        -fx-color:red;
+        -fx-padding:5px;
+        -fx-border: solid black 2px;
+        -fx-background-color:grey;
+}
+
+.label {
+      -fx-color:red;
+      -fx-font-type:bold;
+       }
+
+.gras {
+     -fx-font-weight:bold;
+ }

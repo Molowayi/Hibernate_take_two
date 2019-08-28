@@ -18,7 +18,8 @@ public class Employee {
     private long id;
     @NotNull
     private String firstName;
-    @NotNull private Calendar birthdate;
+    @NotNull
+    private Calendar birthdate;
     @NotNull
     private String lastName;
     @Enumerated(EnumType.STRING)
@@ -43,6 +44,20 @@ public class Employee {
 
         this.role = role;
         this.contactData = contactData;
+    }
+
+    public Employee(String firstname, String lastname, String gsm, String email, String street, String nr, String zipcode, String city, String country, Role role, Calendar birthdate) {
+        Employee employee = new Employee();
+        employee.setFirstName(firstname);
+        employee.setLastName(lastname);
+        employee.setRole(role);
+        employee.setBirthdate(birthdate);
+        Adress adress = new Adress(street, nr, zipcode, city, country);
+        ContactData contactData = new ContactData();
+        contactData.setMobile(gsm);
+        contactData.setEmail(email);
+        contactData.addAdress(adress);
+        employee.addContactData(contactData);
     }
 
     public long getId() {
@@ -144,7 +159,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName +  ", " + role + " born the " + birthdate.toInstant()
+        return firstName + " " + lastName + ", " + role + " born the " + birthdate.toInstant()
 /*
                 +
                 ", contactData=" + contactData +
@@ -159,5 +174,43 @@ public class Employee {
 
     public Calendar getBirthdate() {
         return birthdate;
+    }
+
+    public void makeRoleFromString(String s) {
+        Role role = null;
+        switch (s) {
+            case "ADMINISTRATIVE":
+                role = Role.ADMINISTRATIVE;
+                break;
+            case "TEAM_LEADER":
+                role = Role.TEAM_LEADER;
+                break;
+            case "WORKER":
+                role = Role.WORKER;
+                break;
+            case "MANAGER":
+                role = Role.MANAGER;
+                break;
+        }
+        this.role = role;
+    }
+
+    public static Role makeEmployeeRoleFromString(String s) {
+        Role role = null;
+        switch (s) {
+            case "ADMINISTRATIVE":
+                role = Role.ADMINISTRATIVE;
+                break;
+            case "TEAM_LEADER":
+                role = Role.TEAM_LEADER;
+                break;
+            case "WORKER":
+                role = Role.WORKER;
+                break;
+            case "MANAGER":
+                role = Role.MANAGER;
+                break;
+        }
+        return role;
     }
 }

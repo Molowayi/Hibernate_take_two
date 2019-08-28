@@ -45,8 +45,8 @@
                 </Label>
             </HBox>-->
             <HBox prefHeight="171.0" prefWidth="600.0">
-                    <VBox spacing="5" >
-                            <Label text="Id : " fx:id="id"/>
+                    <VBox spacing="5" id="identification">
+                            <Label styleClass="gras" text="Id : " fx:id="id"/>
                             <Label text="First Name : "/>
                             <TextField fx:id="firstname" promptText="Your first name here"/>
                             <Label text="Last Name : "/>
@@ -69,7 +69,8 @@
                             <TextField fx:id="country" promptText="Country"/>
 
                             <Label text="Birthdate : "/>
-                            <DatePicker/>
+                            <DatePicker fx:id="birthdate"/>
+                        <Button fx:id="saveEmployee" text="Save the new employee!" onAction="#save"/>
                     </VBox>
 <!--                    <VBox prefHeight="200.0" prefWidth="200.0">
                             <Label text="Ingeredients"/>

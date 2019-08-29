@@ -6,12 +6,13 @@ import be.intecbrussel.dakplusplus.model.project.Project;
 import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.*;
 
 @Entity
-public class Employee {
+public class Employee implements Serializable {
 
     @Id
     @GeneratedValue
@@ -47,17 +48,17 @@ public class Employee {
     }
 
     public Employee(String firstname, String lastname, String gsm, String email, String street, String nr, String zipcode, String city, String country, Role role, Calendar birthdate) {
-        Employee employee = new Employee();
-        employee.setFirstName(firstname);
-        employee.setLastName(lastname);
-        employee.setRole(role);
-        employee.setBirthdate(birthdate);
+
         Adress adress = new Adress(street, nr, zipcode, city, country);
         ContactData contactData = new ContactData();
         contactData.setMobile(gsm);
         contactData.setEmail(email);
         contactData.addAdress(adress);
-        employee.addContactData(contactData);
+        this.addContactData(contactData);
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.role = role;
+        this.birthdate = birthdate;
     }
 
     public long getId() {

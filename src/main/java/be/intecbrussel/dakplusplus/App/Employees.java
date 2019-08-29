@@ -50,9 +50,6 @@ public class Employees {
     @FXML
     private void save() {
 
-        EmployeeRepository employeeRepository = new EmployeeRepository();
-
-
         LocalDate localDate = birthdate.getValue();
         Calendar bd = Calendar.getInstance();
         bd.clear();
@@ -60,24 +57,50 @@ public class Employees {
         bd.set(localDate.getYear(), localDate.getMonthValue() - 1, localDate.getDayOfMonth());
 
         Role _role = Employee.makeEmployeeRoleFromString((String) role.getText());
-        System.out.println(_role);
+/*        System.out.println(_role);
+        System.out.println(firstname.getText());
+        System.out.println(lastname.getText());
+        System.out.println(mobile.getText());
+        System.out.println(emailadress.getText());
+        System.out.println(city.getText());
+        System.out.println(birthdate);
+        System.out.println(bd.toInstant());*/
 
         Employee employee = new Employee(
-                firstname.getText(),
-                lastname.getText(),
-                mobile.getText(),
-                emailadress.getText(),
-                street.getText(),
-                streetNumber.getText(),
-                zipcode.getText(),
-                city.getText(),
-                country.getText(),
-                Role.WORKER,
+                (String)    firstname.getText(),
+                (String)    lastname.getText(),
+                (String)    mobile.getText(),
+                (String)    emailadress.getText(),
+                (String)    street.getText(),
+                (String)    streetNumber.getText(),
+                (String)    zipcode.getText(),
+                (String)    city.getText(),
+                (String)    country.getText(),
+                _role,
                 bd
 
         );
+
+/*        if(employee.getFirstName() != null){
+            System.out.println("First name : " + employee.getFirstName());
+        }
+        if(employee.getLastName() != null){
+            System.out.println("Last name : " + employee.getLastName());
+        }
+        if(employee.getBirthdate() != null){
+            System.out.println("Birthdate : " + employee.getBirthdate());
+        }
+        if(employee.getRole() != null){
+            System.out.println("Role : " + employee.getRole());
+        }
+        if(employee.getContactData() != null){
+            System.out.println("Contact : " + employee.getContactData());
+        }*/
+
         System.out.println(employee);
-         Employee employee2 = employeeRepository.createEmployee(employee);
+
+        EmployeeRepository employeeRepository = new EmployeeRepository();
+        Employee employee2 = employeeRepository.createEmployee(employee);
         id.setText(new Long(employee2.getId()).toString());
 /*
         LocalDate value = deliveryDate.getValue();

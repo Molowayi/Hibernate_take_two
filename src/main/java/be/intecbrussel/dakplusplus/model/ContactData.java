@@ -71,7 +71,7 @@ public class ContactData implements Serializable {
         this.employee = employee;
     }
 
-    public void addAdress(Adress adress){
+    public void addAdress(Adress adress) {
         adresses.add(adress);
         adress.addContactData(this);
     }

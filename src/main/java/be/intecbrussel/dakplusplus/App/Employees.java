@@ -22,7 +22,8 @@ public class Employees {
     @FXML
     private TextField emailadress;
     @FXML
-    private TextField role;
+    private ChoiceBox<String> role;
+    //    private TextField role;
     @FXML
     private TextField mobile;
     @FXML
@@ -56,7 +57,7 @@ public class Employees {
         //assuming start of day
         bd.set(localDate.getYear(), localDate.getMonthValue() - 1, localDate.getDayOfMonth());
 
-        Role _role = Employee.makeEmployeeRoleFromString((String) role.getText());
+        Role _role = Employee.makeEmployeeRoleFromString((String) role.getSelectionModel().getSelectedItem());
 /*        System.out.println(_role);
         System.out.println(firstname.getText());
         System.out.println(lastname.getText());
@@ -67,15 +68,15 @@ public class Employees {
         System.out.println(bd.toInstant());*/
 
         Employee employee = new Employee(
-                (String)    firstname.getText(),
-                (String)    lastname.getText(),
-                (String)    mobile.getText(),
-                (String)    emailadress.getText(),
-                (String)    street.getText(),
-                (String)    streetNumber.getText(),
-                (String)    zipcode.getText(),
-                (String)    city.getText(),
-                (String)    country.getText(),
+                (String) firstname.getText(),
+                (String) lastname.getText(),
+                (String) mobile.getText(),
+                (String) emailadress.getText(),
+                (String) street.getText(),
+                (String) streetNumber.getText(),
+                (String) zipcode.getText(),
+                (String) city.getText(),
+                (String) country.getText(),
                 _role,
                 bd
 
@@ -98,11 +99,11 @@ public class Employees {
         }*/
 
         System.out.println(employee);
-
+/*
         EmployeeRepository employeeRepository = new EmployeeRepository();
         Employee employee2 = employeeRepository.createEmployee(employee);
         id.setText(new Long(employee2.getId()).toString());
-/*
+
         LocalDate value = deliveryDate.getValue();
 //        ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedIndices();
         ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedItems();

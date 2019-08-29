@@ -14,11 +14,16 @@ import be.intecbrussel.dakplusplus.model.invoice.Invoice_Type;
 import be.intecbrussel.dakplusplus.model.invoice.SmallInvoice;
 import be.intecbrussel.dakplusplus.model.project.*;
 import be.intecbrussel.dakplusplus.model.quotation.Quotation;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import javax.persistence.*;
 import java.util.*;
 
-public class Main {
+public class Main extends Application {
 
     public static void main(String[] args) {
 
@@ -177,7 +182,17 @@ public class Main {
         employeesS.stream().forEach(System.out::println);
 
         em.close();
-  //      emf.close();
+        //      emf.close();
+        // GUI
+        launch(args);
+    }
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/Employees.fxml"));
+        Scene scene = new Scene(root/*, 600, 400*/);
+        primaryStage.setTitle("Employee");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }

@@ -1,5 +1,5 @@
 .vBox {
-        -fx-border: 5px solid red;
+        -fx-border: 5px solid ;
         -fx-margin-left: 20px;
 }
 .datepiker {
@@ -7,14 +7,14 @@
 }
 
 #identification {
-        -fx-color:red;
+        -fx-color:black;
         -fx-padding:5px;
         -fx-border: solid black 2px;
         -fx-background-color:grey;
 }
 
 .label {
-      -fx-color:red;
+      -fx-color:black;
       -fx-font-type:bold;
        }
 

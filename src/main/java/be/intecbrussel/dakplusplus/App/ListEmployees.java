@@ -15,11 +15,10 @@ public class ListEmployees extends Application {
     public static void main(String[] args) {
 
 
- /*       EmployeeRepository employeeRepository = new EmployeeRepository();
+        EmployeeRepository employeeRepository = new EmployeeRepository();
         List<Employee> employees = employeeRepository.getListEmployee();
         employees.stream().forEach(System.out::println);
 
-*/
 
         // GUI
         launch(args);

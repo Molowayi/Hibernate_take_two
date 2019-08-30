@@ -17,6 +17,7 @@ public class SaveEmployee extends Application {
 
     public static void main(String[] args) {
 
+/*
         Calendar jeb_birthdate = Calendar.getInstance();
         jeb_birthdate.set(1967, 9, 9);
         Employee jeb = new Employee("Jeb", "Bush", "0477777776", "jeb@email.adress", "15", "Hogestraat", "1000", "Bruxelles", "Belgium", Role.ADMINISTRATIVE, jeb_birthdate);
@@ -31,6 +32,7 @@ public class SaveEmployee extends Application {
 
         System.out.println("Employee " + jeb + " was created in the database");
         System.out.println("Employee " + james + " was created in the database");
+*/
 
         // GUI
         launch(args);

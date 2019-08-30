@@ -4,6 +4,7 @@ import be.intecbrussel.dakplusplus.datalayer.EmployeeRepository;
 import be.intecbrussel.dakplusplus.model.company.Employee;
 import be.intecbrussel.dakplusplus.model.company.Role;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -46,6 +47,10 @@ public class Employees {
     private CheckBox spicy;
     @FXML
     private ComboBox size;
+    @FXML
+    private TableView<Employee> tableView;
+    @FXML private TextField firstNameField;
+    @FXML private TextField lastNameField;
 
 
     @FXML
@@ -125,6 +130,18 @@ public class Employees {
                 "\nSpicy : " + isSpicy +
                 "\nPieces : " + numberOfPieces);
 */
+
+    }
+
+    @FXML
+    protected void addPerson(ActionEvent event) {
+        ObservableList<Employee> data = tableView.getItems();
+        data.add(new Employee(firstNameField.getText(),
+                lastNameField.getText()
+        ));
+
+        firstNameField.setText("");
+        lastNameField.setText("");
 
     }
 }

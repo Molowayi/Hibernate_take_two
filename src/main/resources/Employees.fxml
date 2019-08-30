@@ -12,6 +12,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+
 
 <!--
 <?import be.intecbrussel.dakplusplus.App.MultiSelectListView?>
@@ -19,6 +23,10 @@
 <!--
 <?import be.intecbrussel.dakplusplus.model.company.Role ?>
 -->
+
+<?import javafx.geometry.Insets?>
+<?import be.intecbrussel.dakplusplus.model.company.Employee?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -44,7 +52,7 @@
                             </graphic>
                         </Label>
                     </HBox>-->
-        <HBox prefHeight="171.0" prefWidth="600.0">
+        <HBox prefHeight="171.0" prefWidth="600.0" style="">
             <VBox spacing="5" id="identification">
                 <Label styleClass="gras" text="Id : " fx:id="id"/>
                 <Label text="First Name : "/>
@@ -52,7 +60,6 @@
                 <Label text="Last Name : "/>
                 <TextField fx:id="lastname" promptText="Your last name here"/>
                 <Label text="Role : "/>
-                <!--<TextField fx:id="role" promptText="Your role here"/>-->
                 <ChoiceBox fx:id="role" value="Make your choice">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -67,6 +74,12 @@
                 <TextField fx:id="emailadress" promptText="Your e-mail"/>
                 <Label text="Mobile : "/>
                 <TextField fx:id="mobile" promptText="Your mobile phone"/>
+
+                <Label text="Birthdate : "/>
+                <DatePicker fx:id="birthdate"/>
+
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="200.0" style="-fx-margin-left=10px;">
                 <Label text="Street : "/>
                 <TextField fx:id="street" promptText="Street"/>
                 <Label text="Number : "/>
@@ -78,30 +91,56 @@
                 <Label text="Country : "/>
                 <TextField fx:id="country" promptText="Country"/>
 
-                <Label text="Birthdate : "/>
-                <DatePicker fx:id="birthdate"/>
-                <Button fx:id="saveEmployee" text="Save the new employee!" onAction="#save"/>
             </VBox>
-            <!--                    <VBox prefHeight="200.0" prefWidth="200.0">
-                                        <Label text="Ingeredients"/>
-                                        <MultiSelectListView fx:id="ingredients" prefHeight="200.0" prefWidth="200.0">
-                                            <items>
-                                                <FXCollections fx:factory="observableArrayList">
-                                                    <String fx:value="Bacon"/>
-                                                    <String fx:value="Cheese"/>
-                                                    <String fx:value="Mushrooms"/>
-                                                    <String fx:value="Oregano"/>
-                                                    <String fx:value="Salami"/>
-                                                    <String fx:value="Tomatoes"/>
-                                                    <String fx:value="Shrimps"/>
-                                                    <String fx:value="Onions"/>
-                                                    <String fx:value="Garlic"/>
-                                                    <String fx:value="Artichoke"/>
-                                                </FXCollections>
-                                            </items>
-                                        </MultiSelectListView>
-                                </VBox>-->
 
+        </HBox>
+        <HBox>
+            <Button fx:id="saveEmployee" text="Save the new employee!" onAction="#save"/>
+        </HBox>
+        <HBox>
+            <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </padding>
+                <Label style="-fx-font: NORMAL 20 Tahoma;" text="Employees list"
+                       GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
+                <TableView fx:id="tableView" GridPane.columnIndex="0"
+                           GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn text="First Name">
+                            <cellValueFactory><PropertyValueFactory property="firstName" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Last Name">
+                            <cellValueFactory><PropertyValueFactory property="lastName" />
+                            </cellValueFactory>
+                        </TableColumn>
+<!--                        <TableColumn text="Email Address">
+                            <cellValueFactory><PropertyValueFactory property="email" />
+                            </cellValueFactory>
+                        </TableColumn>-->
+                    </columns>
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <Employee firstName="Jacob" lastName="Smith"/>
+                            <Employee firstName="Isabella" lastName="Johnson"/>
+                            <Employee firstName="Ethan" lastName="Williams"/>
+                            <Employee firstName="Emma" lastName="Jones"/>
+                            <Employee firstName="Michael" lastName="Brown"/>
+                        </FXCollections>
+                    </items>
+                </TableView>
+                <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0"
+                      GridPane.rowIndex="2">
+                    <TextField fx:id="firstNameField" promptText="First Name"
+                               prefWidth="90"/>
+                    <TextField fx:id="lastNameField" promptText="Last Name"
+                               prefWidth="90"/>
+<!--                    <TextField fx:id="emailField" promptText="email"
+                               prefWidth="150"/>-->
+                    <Button text="Add" onAction="#addPerson"/>
+                </HBox>
+            </GridPane>
         </HBox>
 
     </VBox>

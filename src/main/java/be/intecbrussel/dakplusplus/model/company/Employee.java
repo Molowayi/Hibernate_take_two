@@ -61,6 +61,11 @@ public class Employee implements Serializable {
         this.birthdate = birthdate;
     }
 
+    public Employee(String firstname, String lastname) {
+        firstName = firstname;
+        lastName = lastname;
+    }
+
     public long getId() {
         return id;
     }

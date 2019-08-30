@@ -6,14 +6,17 @@ import be.intecbrussel.dakplusplus.model.company.Role;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class Employees {
+public class Employees implements Initializable {
     @FXML
     private Label id;
     @FXML
@@ -49,8 +52,10 @@ public class Employees {
     private ComboBox size;
     @FXML
     private TableView<Employee> tableView;
-    @FXML private TextField firstNameField;
-    @FXML private TextField lastNameField;
+    @FXML
+    private TextField firstNameField;
+    @FXML
+    private TextField lastNameField;
 
 
     @FXML
@@ -103,12 +108,12 @@ public class Employees {
             System.out.println("Contact : " + employee.getContactData());
         }*/
 
-        System.out.println(employee);
-/*
         EmployeeRepository employeeRepository = new EmployeeRepository();
         Employee employee2 = employeeRepository.createEmployee(employee);
         id.setText(new Long(employee2.getId()).toString());
 
+        updateListEmployees();
+/*
         LocalDate value = deliveryDate.getValue();
 //        ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedIndices();
         ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedItems();
@@ -135,6 +140,7 @@ public class Employees {
 
     @FXML
     protected void addPerson(ActionEvent event) {
+
         ObservableList<Employee> data = tableView.getItems();
         data.add(new Employee(firstNameField.getText(),
                 lastNameField.getText()
@@ -143,5 +149,26 @@ public class Employees {
         firstNameField.setText("");
         lastNameField.setText("");
 
+
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        updateListEmployees();
+    }
+
+    private void updateListEmployees() {
+        ObservableList<Employee> data = tableView.getItems();
+        EmployeeRepository employeeRepository = new EmployeeRepository();
+        List<Employee> employees = employeeRepository.getListEmployee();
+        data.addAll(employees);
+        /*if (employees.size() != 0) {
+            for (Employee e :
+                    employees) {
+                data.add(e);
+            }
+        }*/
     }
 }

@@ -1,16 +1,17 @@
-.vBox {
-        -fx-border: 5px solid ;
-        -fx-margin-left: 20px;
+.vbox {
+/*        -fx-border: 5px solid ;
+        -fx-margin-left: 20px;*/
 }
 .datepiker {
         -fx-color:blue;
 }
 
 #identification {
-        -fx-color:black;
+/*        -fx-color:black;
         -fx-padding:5px;
         -fx-border: solid black 2px;
         -fx-background-color:grey;
+        -fx-margin-left:20px;*/
 }
 
 .label {
@@ -20,4 +21,11 @@
 
 .gras {
      -fx-font-weight:bold;
+ }
+
+ #identification2 {
+    /* -fx-margin-left:220px;
+     -fx-padding: 10 10 10 10;
+     -fx-border-width: 2px;
+     -fx-border-color: #E8E8E8 transparent transparent transparent;*/
  }

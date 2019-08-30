@@ -35,31 +35,21 @@
     <stylesheets>
         <URL value="@style.css"/>
     </stylesheets>
-    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+    <VBox spacing="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
           prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
         <style>
             -fx-padding: 20;
             -fx-border-width: 3;
         </style>
-        <!--            <HBox prefHeight="100.0" prefWidth="200.0">
 
-                            <Button mnemonicParsing="false" text="Save" />
-                        <Label>
-                            <graphic>
-                                <ImageView fitHeight="150.0" fitWidth="776.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@/vues/molophoto.jpeg"/>
-                                </ImageView>
-                            </graphic>
-                        </Label>
-                    </HBox>-->
-        <HBox prefHeight="171.0" prefWidth="600.0" style="">
+        <HBox prefHeight="171.0" prefWidth="600.0" style="" spacing="20">
             <VBox spacing="5" id="identification">
                 <Label styleClass="gras" text="Id : " fx:id="id"/>
-                <Label text="First Name : "/>
+                <Label text="First Name "/>
                 <TextField fx:id="firstname" promptText="Your first name here"/>
-                <Label text="Last Name : "/>
+                <Label text="Last Name  "/>
                 <TextField fx:id="lastname" promptText="Your last name here"/>
-                <Label text="Role : "/>
+                <Label text="Role  "/>
                 <ChoiceBox fx:id="role" value="Make your choice">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -70,29 +60,37 @@
                         </FXCollections>
                     </items>
                 </ChoiceBox>
-                <Label text="E-mail : "/>
+                <Label text="E-mail  "/>
                 <TextField fx:id="emailadress" promptText="Your e-mail"/>
-                <Label text="Mobile : "/>
+                <Label text="Mobile  "/>
                 <TextField fx:id="mobile" promptText="Your mobile phone"/>
 
                 <Label text="Birthdate : "/>
                 <DatePicker fx:id="birthdate"/>
 
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="200.0" style="-fx-margin-left=10px;">
-                <Label text="Street : "/>
+            <VBox spacing="5" id="identification2" prefHeight="200.0" prefWidth="200.0" style="-fx-margin-left=10px;">
+                <Label text="Street  "/>
                 <TextField fx:id="street" promptText="Street"/>
-                <Label text="Number : "/>
+                <Label text="Number  "/>
                 <TextField fx:id="streetNumber" promptText="Number"/>
-                <Label text="Zip code : "/>
+                <Label text="Zip code  "/>
                 <TextField fx:id="zipcode" promptText="Zip code"/>
-                <Label text="City : "/>
+                <Label text="City  "/>
                 <TextField fx:id="city" promptText="City"/>
-                <Label text="Country : "/>
+                <Label text="Country "/>
                 <TextField fx:id="country" promptText="Country"/>
 
             </VBox>
-
+            <HBox prefHeight="100.0" prefWidth="200.0">
+                <Label>
+                    <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="776.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@/vues/molophoto.jpeg"/>
+                        </ImageView>
+                    </graphic>
+                </Label>
+            </HBox>
         </HBox>
         <HBox>
             <Button fx:id="saveEmployee" text="Save the new employee!" onAction="#save"/>
@@ -122,11 +120,11 @@
                     </columns>
                     <items>
                         <FXCollections fx:factory="observableArrayList">
-                            <Employee firstName="Jacob" lastName="Smith"/>
+<!--                            <Employee firstName="Jacob" lastName="Smith"/>
                             <Employee firstName="Isabella" lastName="Johnson"/>
                             <Employee firstName="Ethan" lastName="Williams"/>
                             <Employee firstName="Emma" lastName="Jones"/>
-                            <Employee firstName="Michael" lastName="Brown"/>
+                            <Employee firstName="Michael" lastName="Brown"/>-->
                         </FXCollections>
                     </items>
                 </TableView>

@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Employees implements Initializable {
@@ -57,6 +58,17 @@ public class Employees implements Initializable {
     @FXML
     private TextField lastNameField;
 
+    @FXML
+    private void openAboutDialog() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Hibernate Take Two");
+        alert.setHeaderText("About this software");
+        alert.setContentText("Version 1.0\nPublished on 08-31-2019");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            ButtonType buttonType = result.get();
+        }
+    }
 
     @FXML
     private void save() {
@@ -92,27 +104,14 @@ public class Employees implements Initializable {
 
         );
 
-/*        if(employee.getFirstName() != null){
-            System.out.println("First name : " + employee.getFirstName());
-        }
-        if(employee.getLastName() != null){
-            System.out.println("Last name : " + employee.getLastName());
-        }
-        if(employee.getBirthdate() != null){
-            System.out.println("Birthdate : " + employee.getBirthdate());
-        }
-        if(employee.getRole() != null){
-            System.out.println("Role : " + employee.getRole());
-        }
-        if(employee.getContactData() != null){
-            System.out.println("Contact : " + employee.getContactData());
-        }*/
+
 
         EmployeeRepository employeeRepository = new EmployeeRepository();
         Employee employee2 = employeeRepository.createEmployee(employee);
         id.setText(new Long(employee2.getId()).toString());
 
-        updateListEmployees();
+        ObservableList<Employee> data = tableView.getItems();
+        data.add(employee2);
 /*
         LocalDate value = deliveryDate.getValue();
 //        ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedIndices();
@@ -148,7 +147,6 @@ public class Employees implements Initializable {
 
         firstNameField.setText("");
         lastNameField.setText("");
-
 
 
     }

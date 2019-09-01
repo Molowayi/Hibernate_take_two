@@ -6,9 +6,13 @@ import be.intecbrussel.dakplusplus.model.company.Role;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -44,19 +48,13 @@ public class Employees implements Initializable {
     @FXML
     private DatePicker birthdate;
     @FXML
-    private MultiSelectListView ingredients;
-    @FXML
-    private ToggleGroup myToggleGroup;
-    @FXML
-    private CheckBox spicy;
-    @FXML
-    private ComboBox size;
-    @FXML
     private TableView<Employee> tableView;
     @FXML
     private TextField firstNameField;
     @FXML
     private TextField lastNameField;
+    @FXML
+    private HBox container;
 
     @FXML
     private void openAboutDialog() {
@@ -80,14 +78,6 @@ public class Employees implements Initializable {
         bd.set(localDate.getYear(), localDate.getMonthValue() - 1, localDate.getDayOfMonth());
 
         Role _role = Employee.makeEmployeeRoleFromString((String) role.getSelectionModel().getSelectedItem());
-/*        System.out.println(_role);
-        System.out.println(firstname.getText());
-        System.out.println(lastname.getText());
-        System.out.println(mobile.getText());
-        System.out.println(emailadress.getText());
-        System.out.println(city.getText());
-        System.out.println(birthdate);
-        System.out.println(bd.toInstant());*/
 
         Employee employee = new Employee(
                 (String) firstname.getText(),
@@ -104,36 +94,12 @@ public class Employees implements Initializable {
 
         );
 
-
-
         EmployeeRepository employeeRepository = new EmployeeRepository();
         Employee employee2 = employeeRepository.createEmployee(employee);
         id.setText(new Long(employee2.getId()).toString());
 
         ObservableList<Employee> data = tableView.getItems();
         data.add(employee2);
-/*
-        LocalDate value = deliveryDate.getValue();
-//        ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedIndices();
-        ObservableList selectedIndices = ingredients.getSelectionModel().getSelectedItems();
-
-//        for(Object o : selectedIndices){
-//            System.out.println("o = " + o + " (" + o.getClass() + ")");
-//        }
-        RadioButton selectedBottom = (RadioButton) myToggleGroup.getSelectedToggle();
-        boolean isSpicy = spicy.isSelected();
-        String pizzaSize = (String) size.getValue();
-        int numberOfPieces = Integer.parseInt(numberPizza.getText());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        System.out.println("Name : " + name.getText() +
-                "\nEmail : " + email.getText() +
-                "\nDelivery date : " + formatter.format(value) +
-                "\nIngredients : " + selectedIndices +
-                "\nSelected bottom : " + selectedBottom.getText() +
-                "\nSpicy : " + isSpicy +
-                "\nPieces : " + numberOfPieces);
-*/
 
     }
 
@@ -162,11 +128,13 @@ public class Employees implements Initializable {
         EmployeeRepository employeeRepository = new EmployeeRepository();
         List<Employee> employees = employeeRepository.getListEmployee();
         data.addAll(employees);
-        /*if (employees.size() != 0) {
-            for (Employee e :
-                    employees) {
-                data.add(e);
-            }
-        }*/
+    }
+
+    @FXML
+    private void changeContainerContent() throws IOException {
+//         https://stackoverflow.com/questions/11563298/how-to-change-sub-fxml-gui-parts-at-runtime-with-button-click
+        container.getChildren().clear();
+        container.getChildren().add(FXMLLoader.load(getClass().getResource("/DraftFXML.fxml")));
+        container.getChildren().addAll(new Button("Cut"), new Button("Copy"), new Button("Paste"));
     }
 }

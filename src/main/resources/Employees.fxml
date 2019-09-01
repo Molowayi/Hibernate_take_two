@@ -30,160 +30,169 @@
 <!--<?import be.intecbrussel.dakplusplus.model.company.Employee?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>-->
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.intecbrussel.dakplusplus.App.Employees">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="be.intecbrussel.dakplusplus.App.Employees">
     <stylesheets>
-        <URL value="@style.css" />
+        <URL value="@style.css"/>
     </stylesheets>
-   <children>
-       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-           <style>
-            -fx-padding: 20;
-            -fx-border-width: 3;
-        </style>
-          <children>
-            <MenuBar>
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#openAboutDialog" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-      
-              <HBox prefHeight="171.0" prefWidth="600.0" spacing="20">
-         <children>
-                     <VBox id="identification" spacing="5">
-                        <children>
-                            <Label fx:id="id" styleClass="gras" text="Id : " />
-                            <Label text="First Name " />
-                            <TextField fx:id="firstname" promptText="Your first name here" />
-                            <Label text="Last Name  " />
-                            <TextField fx:id="lastname" promptText="Your last name here" />
-                            <Label text="Role  " />
-                            <ChoiceBox fx:id="role" value="Make your choice">
-                                <items>
-                                    <FXCollections fx:factory="observableArrayList">
-                                        <String fx:value="WORKER" />
-                                        <String fx:value="ADMINISTRATIVE" />
-                                        <String fx:value="TEAM_LEADER" />
-                                        <String fx:value="MANAGER" />
-                                    </FXCollections>
-                                </items>
-                            </ChoiceBox>
-                            <Label text="E-mail  " />
-                            <TextField fx:id="emailadress" promptText="Your e-mail" />
-                            <Label text="Mobile  " />
-                            <TextField fx:id="mobile" promptText="Your mobile phone" />
-            
-                            <Label text="Birthdate : " />
-                            <DatePicker fx:id="birthdate" />
-                        </children>
-         
-                     </VBox>
-                     <VBox id="identification2" prefHeight="200.0" prefWidth="200.0" spacing="5">
-                        <children>
-                            <Label text="Street  " />
-                            <TextField fx:id="street" promptText="Street" />
-                            <Label text="Number  " />
-                            <TextField fx:id="streetNumber" promptText="Number" />
-                            <Label text="Zip code  " />
-                            <TextField fx:id="zipcode" promptText="Zip code" />
-                            <Label text="City  " />
-                            <TextField fx:id="city" promptText="City" />
-                            <Label text="Country " />
-                            <TextField fx:id="country" promptText="Country" />
-                        </children>
-         
-                     </VBox>
-                     <HBox prefHeight="100.0" prefWidth="200.0">
-                        <children>
-                            <Label>
-                                <graphic>
-                                    <ImageView fitHeight="150.0" fitWidth="776.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                           <Image url="@/vues/molophoto.jpeg" />
-                                       </image>
-                                    </ImageView>
-                                </graphic>
-                            </Label>
-                        </children>
-                     </HBox>
-         </children>
-              </HBox>
-              <HBox>
-                 <children>
-                     <Button fx:id="saveEmployee" onAction="#save" text="Save the new employee!" />
-                 </children>
-              </HBox>
-              <HBox>
-                 <children>
-                     <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
-                         <padding>
-                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                         </padding>
-                        <children>
-                            <Label style="-fx-font: NORMAL 20 Tahoma;" text="Employees list" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                            <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                <columns>
-                                    <TableColumn text="First Name">
-                                        <cellValueFactory>
-                                    <PropertyValueFactory property="firstName" />
-                                        </cellValueFactory>
-                                    </TableColumn>
-                                    <TableColumn text="Last Name">
-                                        <cellValueFactory>
-                                    <PropertyValueFactory property="lastName" />
-                                        </cellValueFactory>
-                                    </TableColumn>
-            <!--                        <TableColumn text="Email Address">
-                                        <cellValueFactory><PropertyValueFactory property="email" />
-                                        </cellValueFactory>
-                                    </TableColumn>-->
-                                </columns>
-                                <items>
-                                    <FXCollections fx:factory="observableArrayList">
-<!--                            <Employee firstName="Jacob" lastName="Smith"/>
-                            <Employee firstName="Isabella" lastName="Johnson"/>
-                            <Employee firstName="Ethan" lastName="Williams"/>
-                            <Employee firstName="Emma" lastName="Jones"/>
-                            <Employee firstName="Michael" lastName="Brown"/>-->
-                        </FXCollections>
-                                </items>
-                            </TableView>
-                            <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                               <children>
-                                   <TextField fx:id="firstNameField" prefWidth="90" promptText="First Name" />
-                                   <TextField fx:id="lastNameField" prefWidth="90" promptText="Last Name" />
-               <!--                    <TextField fx:id="emailField" promptText="email"
-                                              prefWidth="150"/>-->
-                                   <Button onAction="#addPerson" text="Add" />
-                               </children>
-                            </HBox>
-                        </children>
-                     <columnConstraints>
-                        <ColumnConstraints />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                     </rowConstraints>
-                     </GridPane>
-                 </children>
-              </HBox>
-          </children>
-   
-       </VBox>
-   </children>
+    <children>
+        <VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+              minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" spacing="10"
+              xmlns="http://javafx.com/javafx/8">
+            <style>
+                -fx-padding: 20;
+                -fx-border-width: 3;
+            </style>
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close"/>
+                                <MenuItem mnemonicParsing="false" onAction="#changeContainerContent"
+                                          text="Change container content"/>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete"/>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#openAboutDialog" text="About"/>
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <Label style="-fx-font: NORMAL 20 Tahoma;" text="Register New Employee"/>
+                <HBox prefHeight="171.0" prefWidth="600.0" spacing="20">
+                    <children>
+
+                        <VBox id="identification" spacing="5">
+                            <children>
+                                <Label fx:id="id" styleClass="gras" text="Id : "/>
+                                <Label text="First Name "/>
+                                <TextField fx:id="firstname" promptText="Your first name here"/>
+                                <Label text="Last Name  "/>
+                                <TextField fx:id="lastname" promptText="Your last name here"/>
+                                <Label text="Role  "/>
+                                <ChoiceBox fx:id="role" value="Make your choice">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="WORKER"/>
+                                            <String fx:value="ADMINISTRATIVE"/>
+                                            <String fx:value="TEAM_LEADER"/>
+                                            <String fx:value="MANAGER"/>
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+                                <Label text="E-mail  "/>
+                                <TextField fx:id="emailadress" promptText="Your e-mail"/>
+                                <Label text="Mobile  "/>
+                                <TextField fx:id="mobile" promptText="Your mobile phone"/>
+
+                                <Label text="Birthdate : "/>
+                                <DatePicker fx:id="birthdate"/>
+                            </children>
+
+                        </VBox>
+                        <VBox id="identification2" prefHeight="200.0" prefWidth="200.0" spacing="5">
+                            <children>
+                                <Label text="Street  "/>
+                                <TextField fx:id="street" promptText="Street"/>
+                                <Label text="Number  "/>
+                                <TextField fx:id="streetNumber" promptText="Number"/>
+                                <Label text="Zip code  "/>
+                                <TextField fx:id="zipcode" promptText="Zip code"/>
+                                <Label text="City  "/>
+                                <TextField fx:id="city" promptText="City"/>
+                                <Label text="Country "/>
+                                <TextField fx:id="country" promptText="Country"/>
+                            </children>
+
+                        </VBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <Label>
+                                    <graphic>
+                                        <ImageView fitHeight="150.0" fitWidth="776.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@/vues/molophoto.jpeg"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Button fx:id="saveEmployee" onAction="#save" text="Save the new employee!"/>
+                    </children>
+                </HBox>
+                <HBox fx:id="container" >
+                    <children>
+                        <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                            <children>
+                                <Label style="-fx-font: NORMAL 20 Tahoma;" text="Employees list"
+                                       GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <columns>
+                                        <TableColumn text="First Name">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="firstName"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn text="Last Name">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="lastName"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <!--                        <TableColumn text="Email Address">
+                                                                    <cellValueFactory><PropertyValueFactory property="email" />
+                                                                    </cellValueFactory>
+                                                                </TableColumn>-->
+                                    </columns>
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <!--                            <Employee firstName="Jacob" lastName="Smith"/>
+                                                                        <Employee firstName="Isabella" lastName="Johnson"/>
+                                                                        <Employee firstName="Ethan" lastName="Williams"/>
+                                                                        <Employee firstName="Emma" lastName="Jones"/>
+                                                                        <Employee firstName="Michael" lastName="Brown"/>-->
+                                        </FXCollections>
+                                    </items>
+                                </TableView>
+                                <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0"
+                                      GridPane.rowIndex="2">
+                                    <children>
+                                        <TextField fx:id="firstNameField" prefWidth="90" promptText="First Name"/>
+                                        <TextField fx:id="lastNameField" prefWidth="90" promptText="Last Name"/>
+                                        <!--                    <TextField fx:id="emailField" promptText="email"
+                                                                       prefWidth="150"/>-->
+                                        <Button onAction="#addPerson" text="Add"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints/>
+                                <RowConstraints/>
+                                <RowConstraints/>
+                            </rowConstraints>
+                        </GridPane>
+                    </children>
+                </HBox>
+            </children>
+
+        </VBox>
+    </children>
 </AnchorPane>

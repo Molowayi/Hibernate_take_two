@@ -24,6 +24,11 @@ public class Company {
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "company")
     private Set<ContactData> contactData = new HashSet<>();
 
+    public Company(String text, ContactData contact) {
+        name = text;
+        contactData.add(contact);
+    }
+
     public long getId() {
         return id;
     }

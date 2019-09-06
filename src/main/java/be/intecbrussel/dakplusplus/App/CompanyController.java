@@ -5,6 +5,9 @@
  */
 package be.intecbrussel.dakplusplus.App;
 
+import be.intecbrussel.dakplusplus.model.Adress;
+import be.intecbrussel.dakplusplus.model.ContactData;
+import be.intecbrussel.dakplusplus.model.company.Company;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -46,9 +49,14 @@ public class CompanyController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+// Adress(String street, String number, String zipCode, String city, String country)
     @FXML
     private void save(ActionEvent event) {
+        Adress adress = new Adress(street.getText(), number.getText(), zipcode.getText(), city.getText(), country.getText());
+        ContactData contact = new ContactData(email.getText(), phone.getText());
+        Company company = new Company(companyName.getText(), contact);
+        company.addContactData(contact);
+        
     }
     
 }

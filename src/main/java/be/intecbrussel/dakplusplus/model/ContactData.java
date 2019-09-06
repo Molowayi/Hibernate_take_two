@@ -23,6 +23,13 @@ public class ContactData implements Serializable {
     @OneToOne(cascade = {CascadeType.ALL})
     private Employee employee;
 
+    public ContactData(String email, String mobile) {
+        this.email = email;
+        this.mobile = mobile;
+    }
+    
+    
+
     public long getId() {
         return id;
     }

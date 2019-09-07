@@ -1,7 +1,9 @@
 package be.intecbrussel.dakplusplus.datalayer;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 public class GenericEntityRepository<E> {
 
@@ -47,5 +49,10 @@ public class GenericEntityRepository<E> {
         em.persist(e);
         em.getTransaction().commit();
         return e;
+    }
+
+    public List<E> getListEntity() {
+        TypedQuery<E> query = em.createQuery("select e from " + entityClass.getName() + "as e", this.entityClass);
+        return query.getResultList();
     }
 }

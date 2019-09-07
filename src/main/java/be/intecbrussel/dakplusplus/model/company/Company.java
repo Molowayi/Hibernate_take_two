@@ -29,6 +29,10 @@ public class Company {
         contactData.add(contact);
     }
 
+    public Company() {
+
+    }
+
     public long getId() {
         return id;
     }

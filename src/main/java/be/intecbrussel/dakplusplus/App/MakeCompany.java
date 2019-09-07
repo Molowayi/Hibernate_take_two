@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  *
  * @author JLVH
  */
-public class MakeCompany extends Application {
+public class MakeCompany extends Application implements Runnable {
     public static void main(String[] args) {
 
 //        EmployeeRepository employeeRepository = new EmployeeRepository();
@@ -38,5 +38,10 @@ public class MakeCompany extends Application {
         primaryStage.setTitle("Company");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    @Override
+    public void run() {
+        MakeCompany.main(new String[] {});
     }
 }

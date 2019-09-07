@@ -27,8 +27,9 @@ public class ContactData implements Serializable {
         this.email = email;
         this.mobile = mobile;
     }
-    
-    
+
+    public ContactData() {
+    }
 
     public long getId() {
         return id;

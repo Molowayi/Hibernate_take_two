@@ -5,11 +5,15 @@
  */
 package be.intecbrussel.dakplusplus.App;
 
+import be.intecbrussel.dakplusplus.datalayer.GenericEntityRepository;
 import be.intecbrussel.dakplusplus.model.Adress;
 import be.intecbrussel.dakplusplus.model.ContactData;
 import be.intecbrussel.dakplusplus.model.company.Company;
+
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -48,15 +52,21 @@ public class CompanyController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-// Adress(String street, String number, String zipCode, String city, String country)
+    }
+
+    // Adress(String street, String number, String zipCode, String city, String country)
     @FXML
     private void save(ActionEvent event) {
         Adress adress = new Adress(street.getText(), number.getText(), zipcode.getText(), city.getText(), country.getText());
         ContactData contact = new ContactData(email.getText(), phone.getText());
         Company company = new Company(companyName.getText(), contact);
         company.addContactData(contact);
-        
+
+        List<Company> companies = (new GenericEntityRepository<Company>()).getListEntity();
+        if (companies.size() == 0) {
+            (new GenericEntityRepository<Company>()).createEntity(company);
+        }
+
     }
-    
+
 }

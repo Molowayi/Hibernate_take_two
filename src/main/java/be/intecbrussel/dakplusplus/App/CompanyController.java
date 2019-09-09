@@ -5,10 +5,12 @@
  */
 package be.intecbrussel.dakplusplus.App;
 
+import be.intecbrussel.dakplusplus.datalayer.EntityManagerCreator;
 import be.intecbrussel.dakplusplus.datalayer.GenericEntityRepository;
 import be.intecbrussel.dakplusplus.model.Adress;
 import be.intecbrussel.dakplusplus.model.ContactData;
 import be.intecbrussel.dakplusplus.model.company.Company;
+import be.intecbrussel.dakplusplus.model.company.Employee;
 
 import java.net.URL;
 import java.util.List;
@@ -19,6 +21,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  * FXML Controller class
@@ -57,14 +61,65 @@ public class CompanyController implements Initializable {
     // Adress(String street, String number, String zipCode, String city, String country)
     @FXML
     private void save(ActionEvent event) {
-        Adress adress = new Adress(street.getText(), number.getText(), zipcode.getText(), city.getText(), country.getText());
+        Company company = makeCompany();
+        List<Company> companies = getListCompanies();
+//        List<Company> companies = (new GenericEntityRepository<Company>()).getListEntity();
+        if (companies.size() == 0) {
+//            (new GenericEntityRepository<Company>()).createEntity(company);
+            company = persistCompany(company);
+//            (new GenericEntityRepository<Company>()).createEntity(company);
+        }
+    }
+
+    private List<Company> getListCompanies() {
+        EntityManager em = EntityManagerCreator.getEntityManager();
+        TypedQuery<Company> query = em.createQuery("select c from Company  as c", Company.class);
+        List<Company> companies = query.getResultList();
+        return companies;
+    }
+
+    private Company makeCompany() {
+        getData();
+        Adress address = new Adress(street.getText(), number.getText(), zipcode.getText(), city.getText(), country.getText());
         ContactData contact = new ContactData(email.getText(), phone.getText());
+        contact.addAdress(address);
         Company company = new Company(companyName.getText(), contact);
         company.addContactData(contact);
+        return company;
+    }
 
-        List<Company> companies = (new GenericEntityRepository<Company>()).getListEntity();
-        if (companies.size() == 0) {
-            (new GenericEntityRepository<Company>()).createEntity(company);
+    private Company persistCompany(Company company) {
+        EntityManager em = EntityManagerCreator.getEntityManager();
+        em.getTransaction().begin();
+        em.persist(company);
+        em.getTransaction().commit();
+        return company;
+    }
+
+    private void getData() {
+        if (companyName.getText() == "") {
+            companyName.setText("Dakplusplus");
+        }
+        if (phone.getText() == "") {
+            phone.setText("+32444444444");
+        }
+        if (email.getText() == "") {
+            email.setText("Dakplusplus@dpp.be");
+        }
+        if (street.getText() == "") {
+            street.setText("Alsace Lorraine");
+        }
+        if (number.getText() == "") {
+            number.setText("33");
+        }
+        if (zipcode.getText() == "") {
+            zipcode.setText("1050");
+        }
+        if (city.getText() == "") {
+            city.setText("Brussels");
+        }
+        if (country.getText() == "") {
+            country.setText("Belgium");
         }
 
     }

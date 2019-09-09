@@ -15,54 +15,54 @@
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField fx:id="companyName" promptText="Enter the company name" text="companyName">
+            <TextField fx:id="companyName" promptText="Enter the company name">
                <padding>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
             </TextField>
-            <TextField fx:id="street" promptText="Enter adress street" text="address">
+            <TextField fx:id="street" promptText="Enter adress street" >
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="number" promptText="Number" text="number">
+            <TextField fx:id="number" promptText="Number">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="zipcode" promptText="Zip code" text="zipcode">
+            <TextField fx:id="zipcode" promptText="Zip code">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="city" promptText="City" text="city">
+            <TextField fx:id="city" promptText="City">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="country" promptText="Country" text="country">
+            <TextField fx:id="country" promptText="Country">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="email" promptText="Email address" text="email">
+            <TextField fx:id="email" promptText="Email address">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="phone" promptText="Phoe number" text="phone">
+            <TextField fx:id="phone" promptText="Phoe number">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <Button fx:id="save" mnemonicParsing="false" onAction="#save" text="Save Company data">
+            <Button fx:id="save" mnemonicParsing="false" onAction="#save"  text="Save company">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </Button>
          </children>
          <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
          </padding>
       </VBox>
    </children>

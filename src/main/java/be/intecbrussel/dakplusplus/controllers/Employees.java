@@ -1,4 +1,4 @@
-package be.intecbrussel.dakplusplus.App;
+package be.intecbrussel.dakplusplus.controllers;
 
 import be.intecbrussel.dakplusplus.datalayer.EmployeeRepository;
 import be.intecbrussel.dakplusplus.model.company.Employee;

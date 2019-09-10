@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.intecbrussel.dakplusplus.App;
+package be.intecbrussel.dakplusplus.controllers;
 
 import be.intecbrussel.dakplusplus.datalayer.EntityManagerCreator;
 import be.intecbrussel.dakplusplus.datalayer.GenericEntityRepository;

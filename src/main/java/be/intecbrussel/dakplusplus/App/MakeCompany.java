@@ -25,8 +25,6 @@ public class MakeCompany extends Application implements Runnable {
 //        EmployeeRepository employeeRepository = new EmployeeRepository();
 //        List<Employee> employees = employeeRepository.getListEmployee();
 //        employees.stream().forEach(System.out::println);
-
-
         // GUI
         launch(args);
     }

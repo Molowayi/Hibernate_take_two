@@ -20,7 +20,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -31,6 +33,8 @@ import javax.persistence.TypedQuery;
  */
 public class CompanyController implements Initializable {
 
+    @FXML
+    private Label companyid;
     @FXML
     private TextField companyName;
     @FXML
@@ -50,25 +54,19 @@ public class CompanyController implements Initializable {
     @FXML
     private Button save;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }
 
-    // Adress(String street, String number, String zipCode, String city, String country)
     @FXML
     private void save(ActionEvent event) {
         Company company = makeCompany();
         List<Company> companies = getListCompanies();
-//        List<Company> companies = (new GenericEntityRepository<Company>()).getListEntity();
         if (companies.size() == 0) {
-//            (new GenericEntityRepository<Company>()).createEntity(company);
             company = persistCompany(company);
-//            (new GenericEntityRepository<Company>()).createEntity(company);
         }
+        companyid.setText("Company ID : " + company.getId());
     }
 
     private List<Company> getListCompanies() {
@@ -97,28 +95,28 @@ public class CompanyController implements Initializable {
     }
 
     private void getData() {
-        if (companyName.getText() == "") {
+        if (companyName.getText() == "" || companyName.getText() == null) {
             companyName.setText("Dakplusplus");
         }
-        if (phone.getText() == "") {
+        if (phone.getText() == "" || phone.getText() == null) {
             phone.setText("+32444444444");
         }
-        if (email.getText() == "") {
+        if (email.getText() == "" || email.getText() == null) {
             email.setText("Dakplusplus@dpp.be");
         }
-        if (street.getText() == "") {
+        if (street.getText() == "" || street.getText() == null) {
             street.setText("Alsace Lorraine");
         }
-        if (number.getText() == "") {
+        if (number.getText() == "" || number.getText() == null) {
             number.setText("33");
         }
-        if (zipcode.getText() == "") {
+        if (zipcode.getText() == "" || zipcode.getText() == null) {
             zipcode.setText("1050");
         }
-        if (city.getText() == "") {
+        if (city.getText() == "" || city.getText() == null) {
             city.setText("Brussels");
         }
-        if (country.getText() == "") {
+        if (country.getText() == "" || country.getText() == null) {
             country.setText("Belgium");
         }
 

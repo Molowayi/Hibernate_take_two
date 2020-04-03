@@ -6,3 +6,4 @@ We are using the following technologies:
 - H2 in memory database
 - JavaFX 
 - Java 8
+- Maven

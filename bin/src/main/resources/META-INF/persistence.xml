@@ -101,6 +101,4 @@
             possible values for hbm2ddl: validate, update, create, create-drop, none
         -->
     </persistence-unit>
-
-
 </persistence>

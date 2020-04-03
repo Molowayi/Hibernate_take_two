@@ -7,4 +7,5 @@ We are using the following technologies:
 - JavaFX 
 - Java 8
 - Maven
+
 You can grab the project and run it from your computer. Different classes running the project can be found in the directory Hibernate_take_two/src/main/java/be/intecbrussel/dakplusplus/App

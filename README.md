@@ -3,7 +3,7 @@ A project from school, using Hibernate with MySQL. The project is a modelization
 We are using the following technologies:
 - Hibernate
 - MySQL
-- H2 in memory database as alternative to MySQL
+- H2 in-memory database as alternative to MySQL
 - JavaFX 
 - Java 8
 - Maven

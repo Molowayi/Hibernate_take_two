@@ -2,7 +2,6 @@
     
     drop table Adress if exists;
 
-    
     drop table Adress_ContactData if exists;
     drop table Client if exists;
     drop table Company if exists;

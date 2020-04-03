@@ -4,5 +4,5 @@ We are using the following technologies:
 - Hibernate
 - MySQL
 - H2 in memory database
-- javaFX 
+- JavaFX 
 - Java 8
